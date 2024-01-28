@@ -1,3 +1,8 @@
+
+# Project Title
+
+A brief description of what this project does and who it's for
+
 # Assignment 1: Computer Graphics
 
 ## Project Overview
@@ -58,6 +63,10 @@ The following files and functions were modified or added:
 1. Clone the repository.
 2. Follow the compilation instructions mentioned above.
 3. Run the compiled executable.
+
+## Additional Notes
+
+- Make sure to zip your submission file with the format: ID1_ID2.zip
 
 
 

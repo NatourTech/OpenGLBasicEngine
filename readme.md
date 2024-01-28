@@ -53,18 +53,11 @@ The following files and functions were modified or added:
 - **main.cpp**: Setup for the Computer Graphics project, including initialization and rendering.
 - **scene.cpp**: Functions related to scene manipulation and picking.
 
-## Submission Details
-
-- **Git Repository Link**: [Your Git Repository Link]
-- **Explanation**: Briefly explain the changes made in the engine, including the files modified and functions implemented.
-
 ## How to Compile and Run
 
 1. Clone the repository.
 2. Follow the compilation instructions mentioned above.
 3. Run the compiled executable.
 
-## Additional Notes
 
-- Make sure to zip your submission file with the format: ID1_ID2.zip
 

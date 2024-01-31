@@ -313,6 +313,22 @@ static int round(int val, int val_amount) {
 	return (val / val_amount) * val_amount;
 }
 
+static void WriteToTxt6(unsigned char* output, int width, int height, std::string name) {
+	std::ofstream txt_file;
+	txt_file.open(name, std::ofstream::out);
+	if (txt_file.is_open()) {
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < width; j++) {
+				txt_file << (int)output[to_index(i, j)] / 16 << ",";
+			}
+			txt_file << '\n';
+		}
+	}
+	else {
+		std::cout << "error in opening file" << std::endl;
+	}
+	txt_file.close();
+}
 
 void Game::FloydSteinbergAlg() {
 	int width, height, numComponents;
@@ -347,6 +363,8 @@ void Game::FloydSteinbergAlg() {
 		}
 	}
 
+	WriteToTxt6(output, width, height, "img6.txt");
+
 	AddTexture(width, height, output);
 }
 
@@ -370,6 +388,23 @@ static unsigned char* convertTo1DArray(unsigned char** arr, int width, int heigh
 		for (int j = 0; j < width * 4; j++)
 			output[i * width * 4 + j] = arr[i][j];
 	return output;
+}
+
+static void WriteToTxt(unsigned char* data, int width, int height, std::string name) {
+	std::ofstream txt_file;
+	txt_file.open(name, std::ofstream::out);
+	if (txt_file.is_open()) {
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < width; j++) {
+				txt_file << (int)data[to_index(i, j)] / 255 << ",";
+			}
+			txt_file << '\n';
+		}
+	}
+	else {
+		std::cout << "error in opening file" << std::endl;
+	}
+	txt_file.close();
 }
 
 void Game::HalftoneAlg() {
@@ -417,6 +452,7 @@ void Game::HalftoneAlg() {
 		}
 	// Text writing:
 	imageData = convertTo1DArray(output2DArray, 2 * width, 2 * height);
+	WriteToTxt(imageData, 2 * width, 2 * height, "img5.txt");
 	AddTexture(2 * width, 2 * height, imageData);
 
 }
